@@ -1,0 +1,27 @@
+PASS (exit 0) help
+PASS (exit 0) demo --month 2026-10
+PASS (exit 1) demo --month 2026-10
+PASS (exit 0) list --month 2026-10
+PASS (exit 0) summary --month 2026-10
+PASS (exit 0) add --type expense --amount 350,50 --category Еда --date 2026-10-12 --note Кофе
+PASS (exit 0) list --search Кофе
+PASS (exit 0) edit --id 4279b355-b3d7-443b-9636-22117bba38e6 --type income --amount 400 --category Возврат --date 2026-10-12
+PASS (exit 0) delete --id 4279b355-b3d7-443b-9636-22117bba38e6
+PASS (exit 0) budget --month 2026-10 --amount 20000
+PASS (exit 0) budget --month 2026-10 --amount none
+PASS (exit 0) export --file /tmp/finance-simple-cli-_4ouzq32/export.csv --month 2026-10 --type expense
+PASS (exit 1) unknown
+PASS (exit 1) list --unknown x
+PASS (exit 1) list --month 2026-13
+PASS (exit 1) list --month 2026-10 --month 2026-10
+PASS (exit 1) add --type expense --amount 1
+PASS (exit 1) add --type expense --amount 0 --category A
+PASS (exit 1) add --type expense --amount -1 --category A
+PASS (exit 1) add --type expense --amount 1.001 --category A
+PASS (exit 1) add --type invalid --amount 1 --category A
+PASS (exit 1) edit --id not-guid --type income --amount 1 --category A
+PASS (exit 1) delete --id 00000000-0000-0000-0000-000000000001
+PASS (exit 1) budget --amount -1
+PASS JSON/CSV assertions, failed commands preserve file, .bak exists
+
+24 CLI commands passed.
